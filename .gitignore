@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+ts_demos/log.txt
+web_crawl/log.txt
+monte_carlo/log.txt
