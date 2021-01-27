@@ -34,8 +34,6 @@ count = 0
 fin = open('data/news1.txt', 'a+', encoding='utf-8')
 
 
-
-
 # 如果url符合解析要求，则对该页面进行信息提取
 def getNews(url):
     print('processing {0} in getNews'.format(url))

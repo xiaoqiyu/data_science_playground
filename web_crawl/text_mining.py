@@ -34,6 +34,7 @@ def corpus2words(corpus=None):
     ret = jieba.lcut(corpus, cut_all=False, HMM=False)
     return remove_stop_words(ret)
 
+
 def _read_corpus():
     '''
     读取JRJ爬虫中获取的语料，新闻数据
@@ -51,9 +52,9 @@ def get_topics(corpus=None, topk=20):
     # stop_word_dir_path = os.path.dirname(os.path.dirname(__file__))
     # stop_word_path = os.path.join(os.path.join(os.path.join(stop_word_dir_path, 'data'), 'material'), 'stop_words.txt')
     analyse.set_stop_words('data/stop_words.txt')
-    #获取排名前topK的词列表
-    #tf-idf
-    #pagerank
+    # 获取排名前topK的词列表
+    # tf-idf
+    # pagerank
 
     ret = analyse.textrank(corpus, topK=topk, withWeight=True)
     print(ret)
@@ -66,7 +67,7 @@ def get_topics(corpus=None, topk=20):
 
 
 if __name__ == '__main__':
-   titles, contents = _read_corpus()
-   lst_of_words = corpus2words(contents[1])
-   print(lst_of_words)
-   topics = get_topics(contents,10)
+    titles, contents = _read_corpus()
+    lst_of_words = corpus2words(contents[1])
+    print(lst_of_words)
+    topics = get_topics(contents, 10)

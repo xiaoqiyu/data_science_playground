@@ -146,18 +146,18 @@ def dfs(url=None, date=''):
 def quick_test():
     import urllib.request
     headers = {
-               'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
-               'Accept': r'application/json, text/javascript, */*; q=0.01',
-              }
+        'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
+        'Accept': r'application/json, text/javascript, */*; q=0.01',
+    }
     req = urllib.request.Request(r'http://stock.jrj.com.cn/hotstock/2019/05/10140727553855.shtml', headers=headers)
     response = urllib.request.urlopen(req)
     html = response.read().decode('gb2312', 'ignore')
 
     # 获取页面所有元素
-    #带hearder的request
+    # 带hearder的request
     req = urllib.request.Request(r'http://stock.jrj.com.cn/2019/05/10140427553851.shtml', headers=headers)
     response = urllib.request.urlopen(req)
-    #直接url请求
+    # 直接url请求
     # response = request.urlopen('http://stock.jrj.com.cn/hotstock/2019/05/10140727553855.shtml')
     # html = response.read().decode('gb2312', 'ignore')
 
@@ -172,15 +172,15 @@ def quick_test():
 
 def cookie_example():
     import http.cookiejar, urllib.request
-    #获取cookie
+    # 获取cookie
     cookie = http.cookiejar.CookieJar()
     handler = urllib.request.HTTPCookieProcessor(cookie)
     opener = urllib.request.build_opener(handler)
     response = opener.open('http://www.baidu.com')
     for item in cookie:
-        print(item.name+"="+item.value)
+        print(item.name + "=" + item.value)
 
-    #保存cookie(MozillaCookieJar)
+    # 保存cookie(MozillaCookieJar)
     filename = 'data/cookie.txt'
     cookie = http.cookiejar.MozillaCookieJar(filename)
     handler = urllib.request.HTTPCookieProcessor(cookie)
@@ -188,7 +188,7 @@ def cookie_example():
     response = opener.open('http://www.baidu.com')
     cookie.save(ignore_discard=True, ignore_expires=True)
 
-    #使用cookie
+    # 使用cookie
     cookie = http.cookiejar.MozillaCookieJar()
     cookie.load('data/cookie.txt', ignore_discard=True, ignore_expires=True)
     handler = urllib.request.HTTPCookieProcessor(cookie)
@@ -207,6 +207,7 @@ def utllib_example():
     response = urllib.request.urlopen(req)
     html = response.read().decode('utf-8')
     print(html)
+
 
 def main(date='2019-05-10', page_num=5):
     yy, mm, dd = date.split('-')
